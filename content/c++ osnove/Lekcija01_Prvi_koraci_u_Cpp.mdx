@@ -1,0 +1,1083 @@
+
+---
+title: Lekcija 1 - Prvi koraci u C++
+description: Unos i ispis podataka, osnovni tipovi podataka, varijable, pridruživanje vrijednosti i prvi zadaci u C++-u.
+---
+
+# Lekcija 1 - Prvi koraci u C++
+
+Danas konačno prelazimo na konkretan rad u kodu.
+
+U ovoj lekciji radimo temelj bez kojeg ništa dalje nema smisla:
+- ispis podataka pomoću `cout`
+- unos podataka pomoću `cin`
+- varijable
+- osnovne tipove podataka
+- pridruživanje vrijednosti
+- prve računske operacije
+- prve prave zadatke
+
+Ovo je jedna od najvažnijih lekcija u cijelom uvodu u programiranje.  
+Ako ovaj dio nije jasan, kasnije će grananja i petlje biti nepotrebno teške.
+
+Zato ovdje idemo polako, detaljno i bez preskakanja.
+
+---
+
+## Što ćemo danas naučiti?
+
+Na kraju ove lekcije treba biti jasno:
+- kako program ispisuje poruku korisniku
+- kako korisnik unosi podatke
+- kako se podaci spremaju u memoriju pomoću varijabli
+- kako odabrati odgovarajući tip podatka
+- kako izračunati i ispisati rezultat
+- kako čitati program red po red
+
+---
+
+## Prisjećanje osnovne strukture programa
+
+Pogledajmo ponovno poznati oblik programa:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "Pozdrav!" << endl;
+    return 0;
+}
+```
+
+Sad to već ne bi smjelo izgledati potpuno strano.
+
+Znamo:
+- `#include <iostream>` uključuje mogućnost unosa i ispisa
+- `using namespace std;` pojednostavljuje zapis
+- `main()` je početak izvođenja
+- unutar vitičastih zagrada pišemo naredbe programa
+
+Sada ćemo u taj prostor unutar `main()` početi dodavati stvaran rad.
+
+---
+
+## Ispis na ekran pomoću `cout`
+
+Najjednostavniji primjer:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "Dobro dosli u C++!" << endl;
+    return 0;
+}
+```
+
+### Što se ovdje događa?
+- `cout` šalje sadržaj na ekran
+- tekst unutar navodnika ispisuje se korisniku
+- `endl` prelazi u novi red
+
+Program se izvršava odozgo prema dolje:
+1. priprema se rad s unosom i ispisom
+2. ulazi se u `main()`
+3. ispisuje se poruka
+4. program završava
+
+---
+
+## Više ispisa zaredom
+
+Možemo ispisati više poruka:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout << "Dobar dan!" << endl;
+    cout << "Ovo je nas prvi program s vise ispisa." << endl;
+    cout << "Program radi red po red." << endl;
+    return 0;
+}
+```
+
+To je važno jer odmah razvijamo pravilan način razmišljanja:
+program izvršava svaku naredbu redom, točno onim redoslijedom kojim su napisane.
+
+---
+
+## Što je varijabla?
+
+Varijabla je mjesto u memoriji u koje spremamo neku vrijednost.
+
+To može biti:
+- broj
+- decimalni broj
+- znak
+- tekst
+- logička vrijednost
+
+Za sada ćemo krenuti s najosnovnijim tipovima.
+
+Najjednostavnije rečeno:
+
+> Varijabla je imenovani spremnik za podatak.
+
+Na primjer, ako želimo spremiti broj godina, možemo napraviti varijablu koja se zove `godine`.
+
+---
+
+## Zašto nam trebaju varijable?
+
+Bez varijabli program bi mogao samo ispisivati unaprijed zapisane poruke.
+
+S varijablama program može:
+- pamtiti podatke
+- računati s njima
+- primati unos korisnika
+- prikazivati rezultate
+
+Drugim riječima:
+varijable pretvaraju statičan program u nešto korisno.
+
+---
+
+## Kako se deklarira varijabla?
+
+Primjer:
+
+```cpp
+int broj;
+```
+
+Ovdje:
+- `int` označava tip podatka
+- `broj` je naziv varijable
+
+Ovo se zove **deklaracija varijable**.
+
+Time programu govorimo:
+> “Treba mi jedna varijabla imena `broj` koja će spremati cijeli broj.”
+
+---
+
+## Što je tip podatka?
+
+Tip podatka govori programu kakvu vrstu vrijednosti neka varijabla sprema.
+
+Za početak ćemo koristiti ove tipove:
+
+- `int` - cijeli brojevi
+- `double` - decimalni brojevi
+- `char` - jedan znak
+- `string` - tekst
+
+Za `string` ćemo uključiti dodatnu biblioteku kada bude potrebno, ali u mnogim alatima će raditi i uz postojeći uvod. Ipak, ispravno je odmah pokazati puni primjer.
+
+---
+
+## Tip `int`
+
+`int` koristimo za cijele brojeve.
+
+Primjeri:
+- 5
+- 12
+- 100
+- -7
+
+Program:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int broj;
+    broj = 25;
+
+    cout << broj << endl;
+    return 0;
+}
+```
+
+### Što se ovdje događa?
+1. stvara se varijabla `broj`
+2. u nju se sprema vrijednost `25`
+3. ispisuje se sadržaj varijable
+
+Vrlo važno:
+- `broj` nije tekst
+- `broj` je naziv varijable
+- zato se kod ispisa piše bez navodnika
+
+---
+
+## Razlika između `"broj"` i `broj`
+
+Pogledaj razliku:
+
+```cpp
+cout << "broj" << endl;
+```
+
+Ovo ispisuje doslovno riječ:
+
+```text
+broj
+```
+
+A ovo:
+
+```cpp
+cout << broj << endl;
+```
+
+ispisuje vrijednost koja se nalazi u varijabli `broj`.
+
+To je jedna od ključnih početničkih razlika koju moraš odmah uhvatiti.
+
+---
+
+## Pridruživanje vrijednosti
+
+Pogledaj ovu liniju:
+
+```cpp
+broj = 25;
+```
+
+Ovdje znak `=` ne znači isto što i u matematici.
+
+U programiranju ovdje znači:
+
+> “Uzmi vrijednost s desne strane i spremi je u varijablu s lijeve strane.”
+
+Dakle:
+- desno je vrijednost
+- lijevo je varijabla
+
+To se zove **pridruživanje**.
+
+---
+
+## Deklaracija i inicijalizacija u jednoj liniji
+
+Možemo pisati i kraće:
+
+```cpp
+int broj = 25;
+```
+
+Ovdje istovremeno:
+- deklariramo varijablu
+- pridružujemo početnu vrijednost
+
+To je vrlo čest i vrlo uredan način pisanja.
+
+---
+
+## Tip `double`
+
+Ako želimo spremati decimalne brojeve, koristimo `double`.
+
+Primjer:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    double cijena = 19.99;
+    cout << cijena << endl;
+    return 0;
+}
+```
+
+`double` koristimo kada broj može imati decimalni dio.
+
+Primjeri:
+- 3.14
+- 7.5
+- 12.99
+
+Vrlo važno:
+ako u varijablu tipa `int` pokušaš smjestiti decimalni broj, gubi se decimalni dio ili nastaje problem u logici programa.
+
+Zato tip mora odgovarati onome što spremamo.
+
+---
+
+## Tip `char`
+
+`char` predstavlja jedan znak.
+
+Primjer:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    char slovo = 'A';
+    cout << slovo << endl;
+    return 0;
+}
+```
+
+Ovdje primijeti važnu razliku:
+- tekst ide u **dvostruke navodnike** `" "`
+- jedan znak ide u **jednostruke navodnike** `' '`
+
+To početnici često zamijene.
+
+---
+
+## Tip `string`
+
+Za tekst koristimo `string`.
+
+Primjer:
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string ime = "Ante";
+    cout << ime << endl;
+    return 0;
+}
+```
+
+Ovdje:
+- `string` sprema tekst
+- `"Ante"` je tekstualna vrijednost
+- ispisujemo sadržaj varijable `ime`
+
+Zašto smo ovdje dodali:
+
+```cpp
+#include <string>
+```
+
+Zato što `string` pripada biblioteci za rad s tekstom i dobro je odmah pokazati ispravan, potpun oblik programa.
+
+---
+
+## Kako odabrati pravi tip podatka?
+
+Pitaj se što želiš spremiti:
+
+- cijeli broj -> `int`
+- decimalni broj -> `double`
+- jedan znak -> `char`
+- tekst -> `string`
+
+Primjeri:
+- broj učenika -> `int`
+- prosjek ocjena -> `double`
+- slovo odgovora -> `char`
+- ime korisnika -> `string`
+
+Ako tip odabereš pogrešno, program može raditi pogrešno čak i kada nema sintaksne greške.
+
+To je važno.  
+Program može biti “ispravan” za kompajler, a svejedno logički loš.
+
+---
+
+## Unos podataka pomoću `cin`
+
+Do sada smo samo unaprijed zadavali vrijednosti.
+
+Sada želimo da korisnik unese podatak.
+
+Primjer:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int broj;
+
+    cout << "Unesite jedan broj: ";
+    cin >> broj;
+
+    cout << "Unijeli ste broj: " << broj << endl;
+    return 0;
+}
+```
+
+---
+
+## Što radi `cin`?
+
+`cin` služi za unos podataka s tipkovnice.
+
+Ovdje:
+
+```cpp
+cin >> broj;
+```
+
+program čeka da korisnik unese vrijednost, a zatim tu vrijednost sprema u varijablu `broj`.
+
+Vrlo je važno shvatiti:
+- `cout` ide prema van, prema ekranu
+- `cin` ide prema unutra, od korisnika prema programu
+
+Možeš ih pamtiti ovako:
+- `cout` = output
+- `cin` = input
+
+---
+
+## Detaljno čitanje programa s unosom
+
+Pogledajmo opet isti program:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int broj;
+
+    cout << "Unesite jedan broj: ";
+    cin >> broj;
+
+    cout << "Unijeli ste broj: " << broj << endl;
+    return 0;
+}
+```
+
+Redoslijed rada je ovakav:
+
+1. Deklarira se varijabla `broj`.
+2. Program ispisuje poruku korisniku.
+3. Program čeka unos.
+4. Korisnik upisuje broj.
+5. Unesena vrijednost sprema se u `broj`.
+6. Program ispisuje tu vrijednost na ekran.
+7. Program završava.
+
+Ako ovo možeš pratiti red po red, napreduješ kako treba.
+
+---
+
+## Spajanje teksta i vrijednosti u jednom ispisu
+
+Pogledaj ovu liniju:
+
+```cpp
+cout << "Unijeli ste broj: " << broj << endl;
+```
+
+Ona kombinira:
+- tekst
+- vrijednost varijable
+- prijelaz u novi red
+
+To je vrlo čest obrazac rada.
+
+Možemo spojiti više dijelova:
+
+```cpp
+cout << "Rezultat je " << rezultat << "." << endl;
+```
+
+To je važna vještina jer ćeš to stalno koristiti u zadacima.
+
+---
+
+## Primjer 1 - unos i ispis imena
+
+```cpp
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string ime;
+
+    cout << "Unesite ime: ";
+    cin >> ime;
+
+    cout << "Pozdrav, " << ime << "!" << endl;
+    return 0;
+}
+```
+
+### Napomena
+Ovdje `cin >> ime;` uzima jednu riječ.  
+Ako korisnik upiše ime i prezime s razmakom, za sada će se pročitati samo prvi dio.
+
+To još ne rješavamo.  
+Za početak je dovoljno da shvatimo osnovni unos.
+
+---
+
+## Primjer 2 - zbroj dva broja
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a, b, zbroj;
+
+    cout << "Unesite prvi broj: ";
+    cin >> a;
+
+    cout << "Unesite drugi broj: ";
+    cin >> b;
+
+    zbroj = a + b;
+
+    cout << "Zbroj je: " << zbroj << endl;
+    return 0;
+}
+```
+
+### Što ovdje radimo?
+- deklariramo tri varijable
+- u dvije spremamo korisnički unos
+- treća prima rezultat računa
+- rezultat ispisujemo
+
+Ovo je već pravi mali program koji ima smisao.
+
+---
+
+## Može li se računati i bez dodatne varijable?
+
+Može:
+
+```cpp
+cout << "Zbroj je: " << a + b << endl;
+```
+
+To je ispravno.
+
+Ali za početak je često bolje imati posebnu varijablu `zbroj` jer je logika preglednija.
+
+Za početnike je preglednost važnija od “pametnijeg” kraćeg zapisa.
+
+---
+
+## Primjer 3 - površina pravokutnika
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    double sirina, visina, povrsina;
+
+    cout << "Unesite sirinu: ";
+    cin >> sirina;
+
+    cout << "Unesite visinu: ";
+    cin >> visina;
+
+    povrsina = sirina * visina;
+
+    cout << "Povrsina pravokutnika je: " << povrsina << endl;
+    return 0;
+}
+```
+
+Ovdje koristimo `double` jer širina i visina mogu biti decimalni brojevi.
+
+To je odmah primjer pravilnog odabira tipa podatka.
+
+---
+
+## Primjer 4 - pretvorba godina u mjesece
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int godine, mjeseci;
+
+    cout << "Unesite broj godina: ";
+    cin >> godine;
+
+    mjeseci = godine * 12;
+
+    cout << "To je " << mjeseci << " mjeseci." << endl;
+    return 0;
+}
+```
+
+Ovo je odličan početni zadatak jer je jednostavan, ali traži da se pravilno:
+- deklarira varijabla
+- unese podatak
+- izračuna rezultat
+- ispiše poruka
+
+---
+
+## Operatori koje danas koristimo
+
+Za sada koristimo osnovne aritmetičke operatore:
+
+- `+` zbrajanje
+- `-` oduzimanje
+- `*` množenje
+- `/` dijeljenje
+- `%` ostatak pri dijeljenju
+
+Primjeri:
+
+```cpp
+int a = 10;
+int b = 3;
+
+cout << a + b << endl;
+cout << a - b << endl;
+cout << a * b << endl;
+cout << a / b << endl;
+cout << a % b << endl;
+```
+
+Vrlo važna napomena:
+kad dijelimo dva `int` broja, rezultat se ponaša kao cjelobrojno dijeljenje.
+
+Na primjer:
+
+```cpp
+10 / 3
+```
+
+ne daje `3.333...`, nego `3`.
+
+To kasnije zna stvarati greške ako se ne razumije na vrijeme.
+
+---
+
+## Cjelobrojno dijeljenje
+
+Pogledaj primjer:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a = 10;
+    int b = 3;
+
+    cout << a / b << endl;
+    return 0;
+}
+```
+
+Rezultat će biti:
+
+```text
+3
+```
+
+Zašto?  
+Zato što su obje varijable tipa `int`.
+
+Ako želimo decimalni rezultat, trebamo koristiti `double`.
+
+Primjer:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    double a = 10;
+    double b = 3;
+
+    cout << a / b << endl;
+    return 0;
+}
+```
+
+Sada dobivamo decimalni rezultat.
+
+Ovo je jedna od najvažnijih stvari koje početnici često ne razumiju odmah.
+
+---
+
+## Više varijabli istog tipa
+
+Možemo napisati:
+
+```cpp
+int a, b, c;
+```
+
+To znači da su `a`, `b` i `c` sve varijable tipa `int`.
+
+To je dopušteno, ali treba paziti na čitljivost.  
+Kad program postane veći, ponekad je urednije pisati svaku varijablu u zaseban red.
+
+Za početne zadatke oba načina su u redu.
+
+---
+
+## Pravila imenovanja varijabli
+
+Naziv varijable treba biti jasan i smislen.
+
+Dobri primjeri:
+- `broj`
+- `godine`
+- `povrsina`
+- `ime`
+- `ukupno`
+
+Lošiji primjeri:
+- `x1`
+- `aa`
+- `q`
+- `temp123` kada nije jasno što znači
+
+Zašto je to bitno?  
+Zato što program ne pišemo samo da ga računalo izvrši, nego i da ga čovjek može razumjeti.
+
+Početnička greška je misliti da je svejedno kako se nešto zove.  
+Nije svejedno.
+
+---
+
+## Najčešće pogreške kod `cin` i `cout`
+
+### 1. Korištenje navodnika oko varijable
+Pogrešno:
+
+```cpp
+cout << "broj" << endl;
+```
+
+ako želiš ispisati vrijednost varijable `broj`.
+
+### 2. Zaboravljen operator `>>` kod unosa
+Pogrešno:
+
+```cpp
+cin broj;
+```
+
+Ispravno:
+
+```cpp
+cin >> broj;
+```
+
+### 3. Korištenje varijable prije nego što je dobila vrijednost
+Ako deklariraš varijablu, a ne dodijeliš joj vrijednost niti uneseš vrijednost, onda koristiš nepoznat sadržaj.
+
+### 4. Pogrešan tip podatka
+Ako u `int` očekuješ decimalni broj, logika će biti loša.
+
+### 5. Miješanje `=` i `==`
+O tome ćemo detaljnije kasnije, ali odmah zapamti:
+- `=` pridružuje vrijednost
+- `==` uspoređuje vrijednosti
+
+Za sada uglavnom koristimo `=`.
+
+---
+
+## Zadatci za rad na predavanju
+
+Kreni od lakših prema težima.  
+Nemoj preskakati prve zadatke samo zato što izgledaju jednostavno.  
+Upravo oni stvaraju bazu.
+
+### Zadatak 1
+Napiši program koji ispisuje:
+- svoje ime
+- prezime
+- naziv škole ili tečaja
+
+Svaki podatak neka bude u novom redu.
+
+### Zadatak 2
+Napiši program koji deklarira varijablu `godine`, dodijeli joj neku vrijednost i ispiši je na ekran.
+
+### Zadatak 3
+Napiši program koji unosi jedan cijeli broj i zatim ga ispisuje.
+
+### Zadatak 4
+Napiši program koji unosi dva cijela broja i ispisuje njihov zbroj.
+
+### Zadatak 5
+Napiši program koji unosi dva broja i ispisuje:
+- zbroj
+- razliku
+- umnožak
+
+### Zadatak 6
+Napiši program koji unosi duljinu stranice kvadrata i računa njegov opseg.
+
+### Zadatak 7
+Napiši program koji unosi širinu i visinu pravokutnika te računa površinu.
+
+### Zadatak 8
+Napiši program koji unosi broj minuta i pretvara ga u sate i minute.  
+Napomena: ovdje već treba razmisliti o dijeljenju i ostatku pri dijeljenju.
+
+### Zadatak 9
+Napiši program koji unosi tri broja i računa njihov zbroj i prosjek.
+
+### Zadatak 10
+Napiši program koji unosi temperaturu u Celzijusima i ispisuje ju kao tekstualnu poruku zajedno s unesenom vrijednošću.
+
+---
+
+## Teži zadatci za rad na vježbama
+
+Ovdje zadaci više nisu samo mehanički.  
+Traže pažljivo čitanje i pravilno slaganje više koraka.
+
+### Zadatak 11
+Napiši program koji unosi broj dana i pretvara ga u:
+- tjedne
+- preostale dane
+
+Primjer:
+ako korisnik unese `17`, program treba ispisati:
+- 2 tjedna
+- 3 dana
+
+### Zadatak 12
+Napiši program koji unosi ukupan broj sekundi i pretvara ga u:
+- sate
+- minute
+- sekunde
+
+Ovdje treba pravilno koristiti cjelobrojno dijeljenje i ostatak pri dijeljenju.
+
+### Zadatak 13
+Napiši program koji unosi cijenu jednog proizvoda i količinu, zatim računa ukupnu cijenu.  
+Na kraju ispiši urednu poruku korisniku s oba unosa i ukupnim rezultatom.
+
+### Zadatak 14
+Napiši program koji unosi broj učenika u razredu i broj klupa.  
+Pretpostavi da u jednu klupu sjedaju 2 učenika.  
+Program treba izračunati koliko je mjesta ukupno i koliko mjesta ostaje prazno ili nedostaje.
+
+### Zadatak 15
+Napiši program koji unosi:
+- broj sati rada
+- cijenu jednog sata rada
+
+Zatim izračunaj ukupnu zaradu.  
+Nakon toga izračunaj i koliko iznosi 20% od te zarade.
+
+---
+
+## Baš teški zadatci za najbolje
+
+Ovi zadaci su namjerno teži.  
+Ne zato da budu “zločesti”, nego zato da odvoje mehaničko prepisivanje od stvarnog razumijevanja.
+
+### Zadatak 16
+Napiši program koji unosi troznamenkasti broj i ispisuje:
+- zbroj njegovih znamenki
+- umnožak njegovih znamenki
+
+Napomena: ne koristi grananje ni petlje.  
+Trebaš razmišljati pomoću dijeljenja i ostatka pri dijeljenju.
+
+### Zadatak 17
+Napiši program koji unosi ukupan broj kuna ili eura centi i pretvara ga u:
+- broj novčanica/kovanica određenih apoena
+
+Za početak koristi samo ove apoene:
+- 2
+- 1
+- 0.50
+- 0.20
+- 0.10
+
+Ako radiš s centima, sve svedi na cijele brojeve da izbjegneš probleme s decimalama.
+
+### Zadatak 18
+Napiši program koji unosi broj mjeseci i ispisuje koliko to iznosi u:
+- godinama
+- preostalim mjesecima
+- približnom broju dana
+
+Pritom:
+- 1 godina = 12 mjeseci
+- 1 mjesec = 30 dana
+
+### Zadatak 19
+Napiši program koji unosi tri vremena izražena u sekundama za tri različita natjecatelja.  
+Program treba ispisati:
+- ukupno vrijeme svih natjecatelja
+- prosječno vrijeme
+- svako vrijeme zasebno pretvoreno u minute i sekunde
+
+### Zadatak 20
+Napiši program koji unosi:
+- naziv proizvoda kao jednu riječ
+- cijenu
+- količinu
+- postotak popusta
+
+Program treba izračunati:
+- ukupnu cijenu bez popusta
+- iznos popusta
+- konačnu cijenu nakon popusta
+
+Na kraju neka ispis izgleda uredno i smisleno, a ne samo kao niz brojeva.
+
+Ovdje više nije problem samo račun, nego i organizacija cijelog rješenja.
+
+---
+
+## Domaći rad
+
+Domaći rad je obavezan.  
+Bez samostalnog rada nema stvarnog napretka.
+
+### Obavezni zadaci
+1. Program za unos imena i ispis pozdrava.
+2. Program za zbroj dva broja.
+3. Program za površinu pravokutnika.
+4. Program za pretvorbu minuta u sate i minute.
+5. Program za pretvorbu sekundi u sate, minute i sekunde.
+
+### Dodatni zadaci
+6. Program koji izračunava prosjek tri broja.
+7. Program koji iz troznamenkastog broja izdvaja znamenke.
+8. Program koji računa ukupnu cijenu proizvoda uz količinu i popust.
+
+### Pravila domaćeg rada
+- svaki zadatak mora biti u zasebnom programu ili jasno odvojen
+- kod mora biti uredno uvučen
+- varijable moraju imati smislena imena
+- ispis mora biti razumljiv korisniku
+- nije dovoljno da program “nekako radi”; mora biti čitljiv
+
+---
+
+## Kako pristupati rješavanju zadatka?
+
+Kad dobiješ zadatak, nemoj odmah tipkati kod.  
+To je loša navika.
+
+Prvo odradi ova 4 koraka:
+
+### 1. Pročitaj zadatak do kraja
+Ne napola.  
+Ne površno.
+
+### 2. Odredi što je ulaz
+Što korisnik unosi?
+
+### 3. Odredi što treba izračunati
+Koja formula ili logika se traži?
+
+### 4. Odredi što je izlaz
+Što program treba ispisati?
+
+Tek onda piši kod.
+
+To je navika koja kasnije spašava kod težih zadataka.
+
+---
+
+## Primjer razmišljanja prije koda
+
+Zadatak: unesi broj minuta i pretvori ga u sate i minute.
+
+### Razmišljanje:
+- ulaz: broj minuta
+- treba izračunati sate
+- treba izračunati preostale minute
+- izlaz: broj sati i broj minuta
+
+### Kod:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int minute, sati, ostatakMinuta;
+
+    cout << "Unesite broj minuta: ";
+    cin >> minute;
+
+    sati = minute / 60;
+    ostatakMinuta = minute % 60;
+
+    cout << "To je " << sati << " sati i " << ostatakMinuta << " minuta." << endl;
+    return 0;
+}
+```
+
+Ovakav pristup je ispravan jer nije nastao “napamet”, nego iz logičkog rastavljanja zadatka.
+
+---
+
+## Sažetak lekcije
+
+Danas smo postavili pravi početak rada u C++-u.
+
+Naučili smo:
+- kako koristiti `cout` za ispis
+- kako koristiti `cin` za unos
+- što je varijabla
+- što je tip podatka
+- kako deklarirati i inicijalizirati varijable
+- kako koristiti osnovne aritmetičke operatore
+- zašto je važno odabrati pravi tip podatka
+- kako rješavati prve jednostavne i srednje teške zadatke
+
+Ako ovaj dio nije siguran, nema smisla juriti dalje.
+
+---
+
+## Za sljedeći put
+
+Prije sljedeće lekcije mora biti potpuno jasno:
+- razlika između teksta i varijable
+- razlika između `cout` i `cin`
+- razlika između `int` i `double`
+- kako se vrijednost sprema u varijablu
+- kako program čita naredbe redom
+
+U sljedećoj lekciji prirodno prelazimo na:
+- složenije izraze
+- operatore usporedbe
+- logičke uvjete
+- grananje pomoću `if`, `else if` i `else`
+
+Tamo program više neće samo računati, nego će početi **odlučivati**.
