@@ -1,597 +1,239 @@
+import CodePreviewSplit from '../../components/CodePreviewSplit'
+import { LessonHero, InfoBox, StepGrid, StepCard, ConceptGrid, ConceptCard, Checklist, LessonSummary } from '../../components/LessonUI'
 
----
-title: Uvod u C++
-description: Povijest jezika C++, gdje se koristi danas, kako se razlikuje od Pythona i kako izgleda osnovna struktura C++ programa.
----
+<LessonHero
+  eyebrow="C++ osnove • Uvod"
+  title="Uvod u C++"
+  subtitle="Uvodna lekcija postavlja temelj za cijeli ciklus rada. Ovdje se objašnjava kako je C++ nastao, zašto je i dalje važan, gdje se koristi danas i kako izgleda osnovna struktura jednog C++ programa prije nego krenemo na unos, ispis, grananje i petlje."
+  badges={["C++", "Povijest jezika", "Primjena", "Struktura programa", "Početak rada"]}
+/>
 
-# Uvod u C++
+<InfoBox type="info" title="Što se u ovoj lekciji gradi">
+Ova lekcija ne služi rješavanju zadataka nego postavljanju čvrstog temelja. Prije rada s naredbama <code>cin</code> i <code>cout</code> potrebno je jasno razumjeti <strong>što je C++</strong>, <strong>zašto se koristi</strong> i <strong>što predstavlja svaki red osnovnog programa</strong>.
+</InfoBox>
 
-Danas krećemo od nule.  
-Ne pretpostavljamo nikakvo predznanje i ne preskačemo osnovne stvari.
+## 1. Povijesni pregled jezika C++
 
-Cilj ovog uvoda nije da odmah rješavamo zadatke, nego da prvo postavimo temelje:
-- što je C++
-- kako je nastao
-- zašto se i danas koristi
-- po čemu je drugačiji od drugih jezika
-- kako izgleda osnovna struktura jednog C++ programa
+C++ nije nov jezik koji se pojavio kao prolazni trend. Nastao je kao odgovor na vrlo konkretan problem: bilo je potrebno zadržati brzinu i blizinu hardveru jezika C, ali uvesti snažniji način organizacije programa. Upravo iz tog razloga Bjarne Stroustrup početkom osamdesetih razvija jezik koji je u ranoj fazi bio poznat kao <em>C with Classes</em>.
 
-Tek kada to postane jasno, prelazimo na prvi konkretan rad u kodu.
+Prvo izdanje jezika službeno se veže uz <strong>1985. godinu</strong>. Nakon toga C++ se nije zaustavio. Razvijao se kroz standarde koji su postupno donosili nove mogućnosti, sigurniji način pisanja koda i moderniji stil rada. Danas se govori o suvremenom C++-u, a ne samo o starom jeziku iz ranijih desetljeća.
 
----
+To je važna polazna točka: <strong>C++ nije zastario jezik</strong>. On je stariji od mnogih popularnih jezika, ali i dalje aktivno živi, standardizira se i koristi ondje gdje su važni <strong>brzina</strong>, <strong>precizna kontrola</strong> i <strong>učinkovitost</strong>.
 
-## Što je C++?
+<ConceptGrid>
+  <ConceptCard title="Zašto je nastao?">
+    Zadržati performanse jezika C, ali programiranje učiniti organiziranijim i pogodnijim za veće sustave.
+  </ConceptCard>
+  <ConceptCard title="Što ga je održalo živim?">
+    Stvarna primjena u industriji: sustavi, alati, igre, ugrađeni uređaji, financijski sustavi i softver kojem je važna brzina.
+  </ConceptCard>
+  <ConceptCard title="Zašto je i dalje aktualan?">
+    Zato što postoje područja u kojima jednostavnost jezika nije dovoljna ako se izgube performanse i kontrola nad memorijom.
+  </ConceptCard>
+</ConceptGrid>
 
-C++ je programski jezik opće namjene.  
-To znači da se može koristiti za jako različite vrste programa:
-- konzolne aplikacije
-- desktop aplikacije
-- igre
-- ugrađene sustave
-- alate za rad sa sustavom
-- dijelove operacijskih sustava
-- visoko performansne aplikacije
-- biblioteke i razvojne alate
-- simulacije i znanstvene sustave
-
-C++ je nastao kao proširenje jezika C.  
-U praksi to znači da je zadržao veliku brzinu i blizinu hardveru, ali je tijekom razvoja dobio i naprednije mogućnosti za organizaciju koda.
-
-Vrlo je važno odmah razumjeti jednu stvar:
-
-> C++ nije zamišljen kao “najlakši” jezik za početak, nego kao vrlo moćan jezik koji daje velik stupanj kontrole.
-
-Ta kontrola je njegova velika prednost, ali i razlog zašto početnicima ponekad djeluje zahtjevno.
+<InfoBox type="success" title="Važan zaključak">
+Kad se za C++ kaže da je "star", to samo znači da ima dugu povijest. To ne znači da je napušten. Naprotiv, riječ je o jeziku koji i danas ima vrlo jaku i ozbiljnu primjenu.
+</InfoBox>
 
 ---
 
-## Kako je nastao C++?
+## 2. Gdje se C++ koristi danas
 
-C++ je nastao početkom 1980-ih.  
-Njegov autor je **Bjarne Stroustrup**.
+C++ se ne koristi zato što je "poznat" ili "tradicionalan", nego zato što u mnogim područjima daje vrlo dobre rezultate. Posebno je jak ondje gdje program mora biti brz, gdje se resursi moraju pažljivo koristiti i gdje je važno da programer ima veću kontrolu nad radom računala.
 
-Prije naziva **C++**, jezik se u ranoj fazi zvao **C with Classes**.  
-Ideja je bila uzeti brzinu i efikasnost jezika C i nadograditi ga mogućnostima koje pomažu u pisanju većih i bolje organiziranih programa.
+Najčešća područja primjene su:
 
-Vrlo pojednostavljeno:
-- **C** je bio brz i snažan, ali “grub” za razvoj većih sustava
-- **C++** je uveden da omogući bolju organizaciju programa, a da se ne izgubi performansa
+<StepGrid>
+  <StepCard step="1" title="Sistemski softver">
+    C++ se koristi u dijelovima operacijskih sustava, alatima niske razine, kompajlerima i različitim bibliotekama koje moraju raditi brzo i pouzdano.
+  </StepCard>
+  <StepCard step="2" title="Razvoj igara">
+    Mnogi game enginei i dijelovi modernih igara pisani su u C++-u zato što traže visoke performanse i preciznu kontrolu memorije.
+  </StepCard>
+  <StepCard step="3" title="Ugrađeni sustavi i elektronika">
+    Uređaji s ograničenim resursima često trebaju jezik koji je učinkovit i dovoljno blizak hardveru.
+  </StepCard>
+  <StepCard step="4" title="Aplikacije visokih performansi">
+    Simulacije, obrada podataka, grafika, financijski sustavi i druga zahtjevna područja često biraju C++ kad je brzina presudna.
+  </StepCard>
+</StepGrid>
 
-Kasnije je C++ standardiziran i razvijao se kroz više važnih verzija:
-- C++98
-- C++03
-- C++11
-- C++14
-- C++17
-- C++20
-- C++23
+U usporedbi s jezikom kao što je Python, C++ uglavnom traži više discipline i više preciznosti, ali zauzvrat često daje veću kontrolu nad onim što se zaista događa u memoriji i pri izvođenju programa. Python je vrlo ugodan za brz početak, jednostavno pisanje i kraće skripte, dok C++ više dolazi do izražaja kada su važni <strong>performansa</strong>, <strong>učinkovitost</strong> i <strong>rad bliže sustavu</strong>.
 
-Ovo je bitno znati iz dva razloga:
-1. C++ nije “mrtav” jezik nego se i dalje razvija.
-2. Različiti projekti ponekad koriste različite standarde jezika.
+Primjer razlike može se objasniti ovako:
 
-Za početak nam to još ne stvara problem, ali je dobro znati da C++ ima dugu povijest i ozbiljan razvoj.
+- ako je cilj brzo napisati manji program koji obrađuje tekstualne podatke, Python će često biti jednostavniji izbor
+- ako je cilj razviti dio sustava u kojem svaka nepotrebna potrošnja memorije i vremena izvođenja postaje važna, C++ je vrlo često bolji alat
 
----
+To ne znači da je jedan jezik "dobar", a drugi "loš". Znači da se jezici razlikuju po namjeni i kompromisima.
 
-## Gdje se C++ koristi danas?
-
-C++ se i danas koristi ondje gdje su važni:
-- brzina izvođenja
-- učinkovito korištenje memorije
-- rad blizu hardveru
-- velika količina podataka
-- stabilnost i predvidivost ponašanja
-
-Zato ga često nalazimo u područjima kao što su:
-- razvoj igara i game engine sustava
-- operacijski sustavi i sistemski alati
-- ugrađeni sustavi i firmware
-- robotika
-- automobilska industrija
-- financijski sustavi visoke performanse
-- grafički alati
-- preglednici i veliki softverski sustavi
-- znanstvene i tehničke simulacije
-
-Drugim riječima:  
-C++ nije jezik koji se najčešće bira zato što je najlakši, nego zato što u određenim vrstama projekata nudi ono što je stvarno bitno.
+<InfoBox type="warning" title="Važno za razumijevanje razlike među jezicima">
+Jezik koji je lakši za početak nije automatski bolji za svaku vrstu posla. Jednako tako, jezik koji daje veću snagu nije automatski bolji za početnike. Zato se C++ uči ozbiljno i postupno.
+</InfoBox>
 
 ---
 
-## Zašto netko i danas bira C++?
+## 3. Compiler i interpreter — osnovna razlika
 
-Najčešći razlozi su:
-- vrlo visoka brzina
-- velika kontrola nad memorijom i resursima
-- mogućnost pisanja vrlo učinkovitog koda
-- široka primjena u ozbiljnim sustavima
-- ogromna količina postojećeg softvera i biblioteka napisana u C++
+Kad se uvodi neki programski jezik, važno je razumjeti i način na koji se napisani kod pretvara u nešto što računalo može izvršiti. Tu se pojavljuju pojmovi <strong>compiler</strong> i <strong>interpreter</strong>. Razlika među njima pomaže objasniti zašto se s nekim jezicima radi na jedan, a s drugima na drukčiji način.
 
-To znači da se C++ i dalje koristi ne zato što je “stara navika”, nego zato što u mnogim scenarijima i dalje rješava problem bolje od jednostavnijih jezika.
+<ConceptGrid>
+  <ConceptCard title="Compiler">
+    Compiler najprije prevodi cijeli izvorni kod programa u strojni kod ili izvršnu datoteku. Tek nakon uspješnog prevođenja program se može pokrenuti.
+  </ConceptCard>
+  <ConceptCard title="Interpreter">
+    Interpreter kod obrađuje tijekom izvođenja, korak po korak, bez klasičnog stvaranja zasebne izvršne datoteke na isti način kao kod kompajliranih jezika.
+  </ConceptCard>
+  <ConceptCard title="Zašto je to važno?">
+    Ova razlika utječe na brzinu rada, način otkrivanja pogrešaka i osjećaj rada s jezikom tijekom učenja i razvoja programa.
+  </ConceptCard>
+</ConceptGrid>
 
----
+Kod C++ jezika tipičan redoslijed rada izgleda ovako:
 
-## Po čemu je C++ bolji od Pythona?
+<Checklist
+  items={[
+    'napiše se izvorni kod programa',
+    'compiler provjeri sintaksu i pokuša prevesti kod',
+    'ako nema pogrešaka, nastaje izvršna datoteka',
+    'tek se tada program pokreće'
+  ]}
+/>
 
-Ovdje treba biti precizan.  
-Nije točno reći da je jedan jezik “općenito bolji”.  
-To je previše površno.
+To znači da se u C++-u pogreške vrlo često uoče već u fazi prevođenja. Program se neće pokrenuti dok compiler ne može uredno prevesti kod. Upravo zato se za C++ kaže da je <strong>kompajlirani jezik</strong>.
 
-Ispravnije je reći:
+Kod jezika kao što je Python početnik često ima drukčiji osjećaj rada: napiše se kod i odmah se pokrene kroz interpreter. To ubrzava eksperimentiranje i olakšava prve korake, ali ne daje isti obrazac rada kao C++, gdje je proces prevođenja sastavni dio svakodnevnog rada.
 
-- u nekim područjima je **C++ bolji izbor**
-- u nekim područjima je **Python bolji izbor**
+<InfoBox type="info" title="Jedna jednostavna usporedba">
+Compiler se može zamisliti kao prijevod cijele knjige unaprijed, pa se tek onda čita gotova prevedena verzija. Interpreter je bliži situaciji u kojoj se tekst prevodi rečenicu po rečenicu dok se upravo čita. Usporedba nije savršena, ali vrlo dobro pomaže razumjeti osnovnu ideju.
+</InfoBox>
 
-### Prednosti C++ u odnosu na Python
-
-#### 1. Veća brzina izvođenja
-C++ programi se u pravilu prevode u strojni kod i zato mogu raditi vrlo brzo.
-
-#### 2. Veća kontrola nad memorijom i resursima
-Programer u C++-u ima puno veću kontrolu nad time što se događa “ispod haube”.
-
-#### 3. Pogodan za sustave gdje je performansa presudna
-Ako se radi o igrama, simulacijama, ugrađenim uređajima ili sustavima gdje je bitna svaka milisekunda, C++ je često bolji izbor.
-
-#### 4. Pogodan za rad blizu hardveru
-C++ se često koristi tamo gdje je važno razumjeti i kontrolirati memoriju, procesor, uređaje i niskorazinsko ponašanje sustava.
-
----
-
-## Po čemu je C++ lošiji od Pythona?
-
-Ovdje također treba biti direktan:  
-za početnika je C++ teži.
-
-### Nedostaci C++ u odnosu na Python
-
-#### 1. Složenija sintaksa
-Kod u C++-u je često duži i stroži.  
-Treba paziti na više detalja.
-
-#### 2. Veća mogućnost grešaka
-Zbog veće kontrole, postoji i veća mogućnost da programer napravi ozbiljnu grešku.
-
-#### 3. Sporije početno učenje
-Za osnovne skripte i brze početke Python je jednostavniji.
-
-#### 4. Manje pogodan za “brzo sklepan” program
-Ako netko želi brzo napisati kraći alat, automatizaciju ili prvi uvod u programiranje, Python je često praktičniji.
+To ne znači da je jedan pristup automatski bolji od drugoga. Važnije je razumjeti posljedicu: C++ od početka uvodi disciplinu rada u kojoj se kod mora napisati dovoljno točno da prođe fazu prevođenja, a to je vrlo korisno za izgradnju urednog programerskog razmišljanja.
 
 ---
 
-## Jednostavna i poštena usporedba C++ i Pythona
+## 4. Je li C++ dobar izbor za učenje osnova programiranja?
 
-Može se ovako sažeti:
+Za potpune početnike C++ nije najlakši mogući ulaz u programiranje, ali je vrlo dobar ako se gradivo vodi pravilnim redoslijedom. Ovdje će se upravo tako i raditi: od najjednostavnijih naredbi prema složenijim obrascima razmišljanja.
 
-- **Python** je često bolji za brzo učenje, jednostavniji početak i brzu izradu manjih ili srednjih alata.
-- **C++** je često bolji kada su važni performansa, kontrola i ozbiljni tehnički sustavi.
+Prednost C++-a u nastavi je to što se vrlo jasno vide temeljni elementi programa:
 
-To ne znači da Python ne može raditi ozbiljne stvari.  
-Može. I radi ih.
+<Checklist
+  items={[
+    'što je varijabla i kako se deklarira',
+    'što znači tip podatka i zašto nije sve isto',
+    'što znači unos, a što izlaz podataka',
+    'što je naredba, što uvjet i što petlja',
+    'kako program ide red po red i kojim redoslijedom se izvršava'
+  ]}
+/>
 
-To također ne znači da je C++ uvijek najbolji izbor.  
-Nije.
-
-Poanta je da svaki jezik ima svoju logiku primjene.
-
-Za ovaj tutorial C++ biramo zato što želimo razumjeti:
-- strožu strukturu programa
-- jasniju kontrolu toka izvođenja
-- precizniji način razmišljanja u programiranju
-
-To je odlična podloga za kasniji razvoj.
+Upravo zato će se na C++-u vrlo dobro vidjeti osnovna logika programiranja. S druge strane, tražit će se točnost. C++ ne oprašta nepažnju lako kao neki viši jezici. To nije mana nastavnog procesa nego korisna osobina: prisiljava na uredno razmišljanje.
 
 ---
 
-## Kako se C++ program pokreće?
+## 5. Zanimljivosti koje vrijedi znati
 
-Ovo je prvi tehnički pojam koji treba razumjeti.
-
-Kada napišemo C++ kod, računalo ga ne izvršava odmah kao običan tekst.  
-Taj kod prvo treba **prevesti**.
-
-Taj proces se zove **kompilacija**.
-
-Pojednostavljeno:
-1. napišemo izvorni kod
-2. prevoditelj (compiler) provjeri kod
-3. ako nema grešaka, napravi izvršnu datoteku
-4. ta izvršna datoteka se pokrene
-
-Zato C++ spada među jezike koji se tipično **kompajliraju**.
+<ConceptGrid>
+  <ConceptCard title="Naziv C++">
+    Znak <code>++</code> dolazi iz jezika C i označava povećanje vrijednosti za 1. Naziv simbolično sugerira da je C++ "korak dalje" u odnosu na C.
+  </ConceptCard>
+  <ConceptCard title="Isti jezik, različita razdoblja">
+    Stariji C++ i moderni C++ mogu izgledati vrlo različito. Zato se danas ne uči samo "C++", nego dobar i suvremen način njegova korištenja.
+  </ConceptCard>
+  <ConceptCard title="Vrlo prisutan u pozadini">
+    Mnogi korisnici svakodnevno koriste programe, igre i alate ne razmišljajući da je velik dio njihove pozadine razvijen upravo u C++-u.
+  </ConceptCard>
+</ConceptGrid>
 
 ---
 
-## Gdje ćemo pisati C++ programe?
+## 6. Kako izgleda osnovna struktura C++ programa
 
-Za rad možemo koristiti:
-- **Visual Studio**
-- **Code::Blocks**
-- **online kompajlere**
+Prije rada s unosom i ispisom potrebno je razumjeti najosnovniji kostur jednog programa. U sljedećem primjeru namjerno se koristi jednostavan program koji ispisuje jednu poruku na ekran.
 
-Važno je da svi alati služe istoj svrsi:
-- pišemo kod
-- pokrećemo prevođenje
-- gledamo rezultat
-- ispravljamo greške
-
-Razlika je samo u tome koliko je alat bogat funkcijama i koliko je ugodan za rad.
-
-Za početak je sasvim dovoljno da možemo:
-- otvoriti projekt ili editor
-- napisati program
-- pokrenuti ga
-- vidjeti izlaz
-
----
-
-## Osnovna struktura C++ programa
-
-Pogledajmo jedan najjednostavniji primjer:
-
-```cpp
-#include <iostream>
+<CodePreviewSplit
+  title="Osnovna struktura C++ programa"
+  description="Lijevo je osnovni primjer programa, a desno će se prikazati preview slika kad se naknadno doda u projekt. Ako slike još nema, komponenta će sama ispisati točan naziv datoteke koju treba ubaciti."
+  language="cpp"
+  fileName="cpp-osnovna-struktura-programa.webp"
+  uploadPath="/images/cpp-osnove/uvod/previews"
+  caption="Datoteka slike: cpp-osnovna-struktura-programa.webp"
+  code={`#include <iostream>
 using namespace std;
 
 int main()
 {
-    cout << "Pozdrav svijete!" << endl;
+    cout << "Pozdrav iz C++ programa!" << endl;
     return 0;
-}
-```
+}`}
+/>
 
-Na prvi pogled ovo izgleda kao skup nepoznatih linija.  
-To je normalno.  
-Sad idemo redom, strogo liniju po liniju.
+### Objašnjenje svakog dijela programa
 
----
+<StepGrid>
+  <StepCard step="1" title="`#include &lt;iostream&gt;`">
+    Ovaj red uključuje biblioteku koja omogućuje rad sa standardnim ulazom i izlazom. Bez nje program ne bi znao što su <code>cout</code>, <code>cin</code> i <code>endl</code>.
+  </StepCard>
+  <StepCard step="2" title="`using namespace std;`">
+    Ovim redom govorimo da ćemo koristiti standardni prostor imena bez stalnog pisanja prefiksa <code>std::</code>. To znači da se može pisati <code>cout</code> umjesto <code>std::cout</code>. Za početni rad to olakšava čitanje programa.
+  </StepCard>
+  <StepCard step="3" title="`int main()`">
+    Ovo je glavna funkcija programa. Izvođenje programa počinje upravo ovdje. Kad god se program pokrene, računalo najprije ulazi u <code>main</code>.
+  </StepCard>
+  <StepCard step="4" title="Vitičaste zagrade `{ }`">
+    Zagrade označavaju početak i kraj bloka koda koji pripada funkciji <code>main</code>. Sve naredbe koje se nalaze unutar tih zagrada izvršavaju se kao dio glavnog programa.
+  </StepCard>
+  <StepCard step="5" title="`cout` naredba">
+    <code>cout</code> služi za ispis na ekran. Ovdje ispisuje tekstualnu poruku koja je zapisana unutar navodnika.
+  </StepCard>
+  <StepCard step="6" title="`endl` i `return 0;`">
+    <code>endl</code> prelazi u novi red. <code>return 0;</code> označava uredan završetak programa.
+  </StepCard>
+</StepGrid>
 
-## Što radi `#include <iostream>`?
-
-```cpp
-#include <iostream>
-```
-
-Ova linija uključuje biblioteku koja nam omogućuje osnovni ulaz i izlaz.
-
-To u praksi znači da zbog ove linije možemo koristiti stvari kao što su:
-- `cout` za ispis na ekran
-- `cin` za unos s tipkovnice
-- `endl` za novi red
-
-Bez ove linije program ne bi znao što su `cout` i `cin`.
-
-Jednostavno rečeno:
-
-> `#include <iostream>` govori programu da želimo koristiti standardne alate za ispis i unos.
-
----
-
-## Što radi `using namespace std;`?
-
-```cpp
-using namespace std;
-```
-
-Ova linija početnicima često izgleda čudno, pa je treba objasniti mirno i precizno.
-
-U C++-u mnoge standardne stvari dolaze iz prostora imena koji se zove `std`.
-
-To znači da bi bez ove linije morali pisati:
-
-```cpp
-std::cout << "Pozdrav svijete!" << std::endl;
-```
-
-A s ovom linijom možemo pisati kraće:
-
-```cpp
-cout << "Pozdrav svijete!" << endl;
-```
-
-Dakle, `using namespace std;` nam u početnim primjerima pojednostavljuje zapis.
-
-### Je li to uvijek najbolja praksa?
-Ne uvijek.
-
-U većim i ozbiljnijim projektima često se izbjegava nekritično korištenje `using namespace std;` u cijelim datotekama jer može dovesti do zabune i sukoba imena.
-
-Ali za početni tutorial je sasvim opravdano koristiti ga jer:
-- kod je kraći
-- lakše ga je čitati
-- fokus ostaje na osnovama
-
-To znači da ga ovdje koristimo svjesno i s razlogom, a ne zato što “mora tako”.
+<InfoBox type="info" title="Zašto ovdje koristimo `using namespace std;`?">
+U ozbiljnijim i većim projektima često se preferira pisanje <code>std::cout</code> i <code>std::cin</code> jer je preglednije i sigurnije. Međutim, u početnoj nastavi često se koristi <code>using namespace std;</code> kako bi se pažnja usmjerila na logiku programa, a ne odmah na dodatnu sintaksu. Kasnije će se lako pokazati i stroži stil pisanja.
+</InfoBox>
 
 ---
 
-## Što radi `int main()`?
+## 7. Kako se program izvršava
 
-```cpp
-int main()
-```
+C++ program ne "čita sve odjednom" na način kako to početnici ponekad zamišljaju. Program se izvršava po pravilima jezika i redoslijedom kojim je napisan. Upravo zato je važno razumjeti tok izvođenja.
 
-Ovo je početak glavne funkcije programa.
+<ConceptGrid>
+  <ConceptCard title="Početak izvođenja">
+    Izvođenje započinje u funkciji <code>main</code>, a ne na proizvoljnom mjestu u datoteci.
+  </ConceptCard>
+  <ConceptCard title="Redoslijed naredbi">
+    Naredbe unutar funkcije uglavnom se izvršavaju odozgo prema dolje, osim kad kasnije uvedemo grananje i petlje.
+  </ConceptCard>
+  <ConceptCard title="Točnost zapisa">
+    Točka-zarez, navodnici, zagrade i velika/mala slova nisu ukras. U C++-u svaki od tih elemenata ima značenje.
+  </ConceptCard>
+</ConceptGrid>
 
-Možeš je gledati kao **ulaznu točku programa**.  
-Kad se program pokrene, izvođenje kreće odavde.
-
-### Zašto piše `int`?
-`int` označava da funkcija na kraju vraća cijeli broj.
-
-### Zašto se zove `main`?
-Zato što je to standardno ime glavne funkcije od koje program počinje raditi.
-
-Za sada je dovoljno zapamtiti:
-
-> `main()` je mjesto odakle program kreće.
-
-Kasnije ćemo detaljnije pričati o funkcijama, ali ovdje je najvažnije da znaš ulogu ove linije.
+Upravo iz tog razloga će se u sljedećoj lekciji vrlo precizno uvoditi <code>cout</code>, <code>cin</code>, varijable i osnovni tipovi podataka. Bez toga nije moguće pravilno prijeći na grananje i petlje.
 
 ---
 
-## Što znače vitičaste zagrade `{ }`?
-
-```cpp
-{
-    cout << "Pozdrav svijete!" << endl;
-    return 0;
-}
-```
-
-Vitičaste zagrade označavaju **blok koda**.
-
-Sve što se nalazi unutar tih zagrada pripada toj funkciji.
-
-Drugim riječima:
-- otvaranje zagrade znači: ovdje počinje tijelo funkcije
-- zatvaranje zagrade znači: ovdje funkcija završava
-
-Ovo je vrlo važno jer ćemo kasnije isto pravilo koristiti i kod:
-- `if`
-- `else`
-- `for`
-- `while`
-
-Zato već sada treba usvojiti da blokovi koda imaju jasan početak i kraj.
-
----
-
-## Što radi `cout`?
-
-```cpp
-cout << "Pozdrav svijete!" << endl;
-```
-
-`cout` služi za ispis podataka na ekran.
-
-Operator `<<` šalje sadržaj prema izlazu.
-
-U ovom primjeru ispisujemo tekst:
-
-```cpp
-"Pozdrav svijete!"
-```
-
-Na kraju piše:
-
-```cpp
-endl
-```
-
-To znači prelazak u novi red.
-
----
-
-## Što radi `return 0;`?
-
-```cpp
-return 0;
-```
-
-Ova linija označava da je program završio i da je funkcija `main()` vratila vrijednost `0`.
-
-Za početak to možeš shvatiti ovako:
-
-> `return 0;` znači da je program završio uredno.
-
-Kasnije ćemo dublje ulaziti u to što funkcije vraćaju i zašto, ali ovdje je dovoljno razumjeti osnovnu ideju.
-
----
-
-## Kako čitati cijeli program kao cjelinu?
-
-Pogledajmo isti primjer još jednom:
-
-```cpp
-#include <iostream>
-using namespace std;
-
-int main()
-{
-    cout << "Pozdrav svijete!" << endl;
-    return 0;
-}
-```
-
-Ovako ga treba čitati:
-
-1. Uključujemo biblioteku za unos i ispis.
-2. Kažemo da ćemo koristiti standardni prostor imena.
-3. Počinje glavna funkcija programa.
-4. Unutar nje ispisujemo poruku na ekran.
-5. Program završava uredno.
-
-To je prvi ispravan mentalni model C++ programa.
-
----
-
-## Što je sintaksa?
-
-Sintaksa je skup pravila pisanja koda.
-
-Kao što u jeziku postoje pravila pisanja rečenica, tako i u programiranju postoje pravila:
-- gdje ide točka-zarez
-- kako se pišu zagrade
-- kako se pišu naredbe
-- kojim redoslijedom se stvari smiju zapisivati
-
-Ako se sintaksa prekrši, program se neće prevesti.
-
-To je razlog zašto je u C++-u važno paziti na detalje.
-
----
-
-## Zašto u C++-u često završavamo liniju točkom-zarezom?
-
-Primijeti ove linije:
-
-```cpp
-using namespace std;
-cout << "Pozdrav svijete!" << endl;
-return 0;
-```
-
-Na kraju imaju `;`
-
-Točka-zarez označava kraj naredbe.
-
-To je jedna od prvih stvari na koju početnici zaboravljaju, pa odmah usvoji ovo pravilo:
-
-> Kad napišeš naredbu u C++-u, vrlo često je završavaš točkom-zarezom.
-
-Naravno, ne završava se baš svaka linija točkom-zarezom, ali ogromna većina naredbi da.
-
----
-
-## Razlika između teksta u navodnicima i naredbi
-
-Pogledaj ovu liniju:
-
-```cpp
-cout << "Pozdrav svijete!" << endl;
-```
-
-Ovdje su dva potpuno različita tipa elemenata:
-- `"Pozdrav svijete!"` je tekstualni sadržaj
-- `cout` i `endl` su elementi jezika odnosno biblioteke
-
-Navodnici su važni jer označavaju da je nešto tekst koji želimo ispisati.
-
-Bez navodnika program to ne bi razumio na isti način.
-
----
-
-## Prvi mentalni model rada programa
-
-Kad se program pokrene, on ne “razmišlja”.  
-On samo izvršava naredbe redom.
-
-Zato na početku moraš razviti naviku da svaki program promatraš ovako:
-
-- odakle kreće?
-- kojom linijom nastavlja?
-- što se ispisuje?
-- kada završava?
-
-To će kasnije biti presudno kod grananja i petlji.
-
----
-
-## Najčešće početničke greške u prvom C++ programu
-
-### 1. Zaboravljen točka-zarez
-Primjer pogreške:
-
-```cpp
-cout << "Pozdrav svijete!" << endl
-```
-
-Nedostaje `;`
-
-### 2. Pogrešno napisano `include`
-Primjer pogreške:
-
-```cpp
-#include iostream
-```
-
-Nedostaju uglate zagrade.
-
-### 3. Pogrešno napisano `main`
-Primjer pogreške:
-
-```cpp
-int Main()
-```
-
-U nekim alatima to može stvarati problem.  
-Drži se standardnog oblika:
-
-```cpp
-int main()
-```
-
-### 4. Zaboravljena vitičasta zagrada
-Ako ne zatvoriš blok pravilno, program neće raditi.
-
-### 5. Zaboravljeni navodnici oko teksta
-Primjer pogreške:
-
-```cpp
-cout << Pozdrav svijete! << endl;
-```
-
-Tekst mora biti unutar navodnika.
-
----
-
-## Što danas treba zapamtiti?
-
-Ako želiš izdvojiti samo najvažnije stvari iz ovog uvoda, onda su to ove:
-
-1. C++ je brz i moćan jezik opće namjene.
-2. Nastao je kao razvoj iz jezika C.
-3. Danas se koristi tamo gdje su važni brzina, kontrola i performanse.
-4. U odnosu na Python je teži za početak, ali daje veću kontrolu.
-5. C++ kod se tipično kompajlira.
-6. Program kreće iz funkcije `main()`.
-7. `#include <iostream>` omogućuje osnovni unos i ispis.
-8. `using namespace std;` pojednostavljuje početni zapis.
-9. `cout` služi za ispis na ekran.
-10. `return 0;` označava uredan završetak programa.
-
----
-
-## Mini provjera razumijevanja
-
-Prije prve prave lekcije pokušaj sam sebi odgovoriti:
-
-1. Tko je autor C++-a?
-2. Zašto se C++ i danas koristi?
-3. U čemu je C++ često bolji od Pythona?
-4. U čemu je Python često lakši za početnike?
-5. Čemu služi `#include <iostream>`?
-6. Čemu služi `using namespace std;`?
-7. Gdje program počinje s izvođenjem?
-8. Čemu služi `cout`?
-9. Zašto koristimo točku-zarez?
-10. Što znači `return 0;`?
-
-Ako ovo možeš objasniti svojim riječima, spreman si za prvu lekciju.
-
----
-
-## Prijelaz na prvu lekciju
-
-U sljedećoj lekciji ulazimo u prvi stvarni rad u programu:
-- `cin`
-- `cout`
-- varijable
-- tipovi podataka
-- deklaracija i pridruživanje vrijednosti
-- prvi konkretni zadaci
-
-Tada više ne gledamo samo strukturu programa, nego počinjemo stvarno unositi podatke i obrađivati ih.
+## 8. Što slijedi nakon uvoda
+
+Nakon ove uvodne lekcije slijedi prvi stvarni rad s kodom. Tada će se uvesti:
+
+<Checklist
+  items={[
+    'ispis podataka pomoću cout',
+    'unos podataka pomoću cin',
+    'varijable i osnovni tipovi podataka',
+    'spremanje vrijednosti u memoriju',
+    'prvi jednostavni zadaci s unosom i ispisom'
+  ]}
+/>
+
+<LessonSummary>
+  <h2>Sažetak lekcije</h2>
+  U ovoj lekciji postavljen je temelj za daljnji rad. Objašnjeno je kako je C++ nastao, zašto je i danas važan te u kojim se područjima koristi. Zatim je prikazana osnovna struktura programa i precizno objašnjena uloga svake linije. To je nužan preduvjet za sljedeću lekciju, u kojoj kreće stvarni rad s unosom, ispisom i varijablama.
+</LessonSummary>
